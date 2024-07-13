@@ -38,7 +38,8 @@ public class GamesFragment extends Fragment {
         if (gamesPath != null)
             NativeLibrary.addGamePath(gamesPath);
         RecyclerView recyclerView = binding.gamesRecyclerView;
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
+        recyclerView.setLayoutManager(layoutManager);
         binding.settingsButton.setOnClickListener(v -> {
             Intent intent = new Intent(requireActivity(), SettingsActivity.class);
             startActivity(intent);
