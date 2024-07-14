@@ -14,9 +14,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-//import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.GridLayoutManager;
 
 import info.cemu.Cemu.databinding.FragmentGamesBinding;
 
@@ -38,8 +37,7 @@ public class GamesFragment extends Fragment {
         if (gamesPath != null)
             NativeLibrary.addGamePath(gamesPath);
         RecyclerView recyclerView = binding.gamesRecyclerView;
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.settingsButton.setOnClickListener(v -> {
             Intent intent = new Intent(requireActivity(), SettingsActivity.class);
             startActivity(intent);
